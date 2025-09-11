@@ -1,11 +1,63 @@
-aside{
-  --font-color: #EEE;
-  background-color: #012E58;
-  color: var(--font-color);
-  img{
+@import url("./reset.css");
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  grid-template-areas:
+    "a h h h"
+    "a m m m";
+}
+header:has(h1) {
+  grid-area: h;
+  background: #666;
+  text-align: center;
+
+  h1{
+    text-decoration: underline;
+  }
+}
+main {
+  grid-area: m;
+  background: #b7a490;
+}
+aside {
+  --aside-font-color: #eee;
+
+  grid-area: a;
+  background-color: #012e58;
+  color: var(--aside-font-color);
+
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  img {
+    margin: 0 auto;
     width: 15rem;
     aspect-ratio: 1;
     border-radius: 1rem;
-    border: 3px solid var(--font-color);
+    border: 3px solid var(--aside-font-color);
+  }
+
+  h3{
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: .5rem;
+    margin-block-end: .5rem;
+  }
+
+  a {
+    color: var(--aside-font-color);
+    &[target="_blank"]::after {
+      content: "" / "opens in new tab/window";
+      width: 1em;
+      height: 1em;
+      margin: 0 0.05em 0 0.5em;
+      background: url("../img/open-new.svg") no-repeat;
+      background-size: contain;
+      display: inline-block;
+      vertical-align: text-bottom;
+    }
   }
 }
