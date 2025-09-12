@@ -8,8 +8,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   display: grid;
   grid-template-areas:
-    "a h h h"
-    "a m m m";
+    "aside  header header  header"
+    "aside  main   main    main";
 }
 
 h3 {
@@ -21,7 +21,7 @@ h3 {
 }
 
 header:has(h1) {
-  grid-area: h;
+  grid-area: header;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,8 +45,7 @@ header:has(h1) {
   }
 }
 main {
-  grid-area: m;
-  /* background: #b7a490; */
+  grid-area: main;
   padding: 1.5rem;
   section{
     margin-block-end: 1.5rem;
@@ -73,7 +72,7 @@ main {
 aside {
   --aside-font-color: #eee;
 
-  grid-area: a;
+  grid-area: aside;
   background-color: var(--azul);
   color: var(--gris);
 
@@ -81,9 +80,10 @@ aside {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+
   img {
     margin: 0 auto;
-    width: 15rem;
+    width: 10rem;
     aspect-ratio: 1;
     border-radius: 1rem;
     border: 3px solid var(--aside-font-color);
@@ -100,6 +100,15 @@ aside {
       background-size: contain;
       display: inline-block;
       vertical-align: text-bottom;
+    }
+  }
+
+  ul{
+    padding-left: 1rem;
+    list-style-position: outside;
+    &.no-bullet{
+      list-style-type: none;
+      padding-left: 0;
     }
   }
 }
